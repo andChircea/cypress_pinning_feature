@@ -1,0 +1,30 @@
+{
+  "name": "cypress_demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress open",
+    "test:ci": "npx cypress run --spec e2e/specs/*.feature",
+    "test:tags": "npx cypress-tags run -e TAGS=$TAGS"
+  },
+  "author": "Andrei",
+  "license": "ISC",
+  "devDependencies": {
+    "axios": "^0.27.2",
+    "cypress": "^10.2.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "cypress-xpath": "^2.0.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "stepDefinitions": "e2e/specs",
+    "commonPath": "e2e/common",
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "e2e/cucumber-json",
+      "filePrefix": "",
+      "fileSuffix": ".cucumber"
+    }
+  }
+}
